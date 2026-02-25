@@ -1,0 +1,145 @@
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.header-row p {
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.app-title-mobile {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.55rem;
+}
+
+.file-picker,
+button {
+  appearance: none;
+  border: 1px solid #3a4a72;
+  background: var(--panel-2);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.btn-icon {
+  display: inline-flex;
+  line-height: 1;
+}
+
+.btn-text {
+  display: inline;
+}
+
+button:hover,
+.file-picker:hover {
+  border-color: var(--brand-gold);
+}
+
+button,
+.file-picker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.btn-icon,
+.state-icon {
+  align-items: center;
+  justify-content: center;
+}
+
+button svg,
+.file-picker svg {
+  width: var(--icon-size-control);
+  height: var(--icon-size-control);
+  display: block;
+  flex: 0 0 auto;
+  shape-rendering: geometricPrecision;
+}
+
+button svg [stroke-width],
+.file-picker svg [stroke-width] {
+  stroke-width: var(--icon-stroke-width);
+}
+
+.help-button {
+  background: var(--brand-gold);
+  border-color: var(--brand-gold-strong);
+  color: #1b1303;
+  font-weight: 700;
+}
+
+.help-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.help-icon svg {
+  width: var(--icon-size-control);
+  height: var(--icon-size-control);
+}
+
+#play-toggle,
+#stop-playback {
+  min-width: var(--icon-button-size-md);
+  min-height: var(--icon-button-size-md);
+  font-size: 1.1rem;
+  padding-inline: 0.65rem;
+}
+
+#play-toggle svg,
+#stop-playback svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+button.danger {
+  border-color: var(--danger-border);
+  color: var(--danger);
+}
+
+.queue-summary {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.volume-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  border: 1px solid #3a4a72;
+}
+
+#volume-slider {
+  width: 90px;
+}

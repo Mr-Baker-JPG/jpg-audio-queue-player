@@ -1,0 +1,21 @@
+:root {
+  --bg: #0a1020;
+  --panel: #101a33;
+  --panel-2: #0f172a;
+  --border: #2a385a;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --subtle: #94a3b8;
+  --brand-gold: #f4c95d;
+  --brand-gold-strong: #ffda7a;
+  --brand-navy: #13213d;
+  --danger: #fecaca;
+  --danger-border: #7f1d1d;
+
+  --icon-size-control: 1rem;
+  --icon-size-queue: 0.95rem;
+  --icon-stroke-width: 1.95;
+
+  --icon-button-size-sm: 1.8rem;
+  --icon-button-size-md: 2.75rem;
+}

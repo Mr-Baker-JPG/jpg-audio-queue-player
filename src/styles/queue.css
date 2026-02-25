@@ -1,0 +1,231 @@
+.queue-panel {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.queue-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.queue-head h2 {
+  font-size: 1rem;
+}
+
+.now-playing {
+  color: var(--brand-gold);
+  font-size: 0.86rem;
+}
+
+.queue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 52vh;
+  overflow: auto;
+}
+
+.folder-section {
+  border-bottom: 1px solid #1d2947;
+}
+
+.folder-section:last-child {
+  border-bottom: none;
+}
+
+.folder-section.selected-folder .folder-header {
+  background: rgb(244 201 93 / 0.09);
+}
+
+.folder-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  background: #101b35;
+  border-bottom: 1px solid #1d2947;
+  cursor: pointer;
+}
+
+.folder-toggle {
+  min-width: var(--icon-button-size-sm);
+  min-height: var(--icon-button-size-sm);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.folder-toggle svg {
+  width: var(--icon-size-queue);
+  height: var(--icon-size-queue);
+}
+
+.folder-name {
+  font-weight: 600;
+  color: var(--brand-gold-strong);
+  user-select: none;
+}
+
+.folder-name.editing {
+  border: 1px solid #7d6224;
+  border-radius: 6px;
+  padding: 0.12rem 0.35rem;
+  background: #1a1f2e;
+  color: var(--text);
+  outline: none;
+}
+
+.folder-meta {
+  color: var(--subtle);
+  font-size: 0.8rem;
+}
+
+.folder-body {
+  padding: 0.2rem 0;
+}
+
+.folder-body.hidden {
+  display: none;
+}
+
+.folder-body.drag-over {
+  box-shadow: inset 0 0 0 1px var(--brand-gold);
+  background: rgb(244 201 93 / 0.04);
+}
+
+.folder-empty {
+  color: var(--subtle);
+  font-size: 0.84rem;
+  padding: 0.4rem 0.75rem 0.6rem;
+}
+
+.queue-item {
+  display: grid;
+  grid-template-columns: 20px auto 1fr auto auto;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.48rem 0.75rem;
+  border-bottom: 1px solid #1d2947;
+  background: var(--panel-2);
+  cursor: grab;
+}
+
+.queue-item:last-child {
+  border-bottom: none;
+}
+
+.queue-item:active {
+  cursor: grabbing;
+}
+
+.queue-item.selected {
+  background: linear-gradient(90deg, rgb(244 201 93 / 0.14), rgb(22 36 69 / 1) 30%);
+  box-shadow: inset 3px 0 0 var(--brand-gold), inset 0 0 0 1px rgb(244 201 93 / 0.25);
+}
+
+.queue-item.playing {
+  background: #0d2a29;
+  box-shadow: inset 3px 0 0 #34d399;
+}
+
+.queue-item.paused {
+  background: #2a2212;
+  box-shadow: inset 3px 0 0 var(--brand-gold);
+}
+
+.queue-item.dragging {
+  opacity: 0.5;
+}
+
+.queue-item.drag-over {
+  box-shadow: inset 0 0 0 1px var(--brand-gold);
+}
+
+.state-icon,
+.track-meta,
+.empty {
+  color: var(--subtle);
+}
+
+.queue-item.selected .state-icon {
+  color: var(--brand-gold-strong);
+}
+
+.state-icon {
+  text-align: center;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.state-icon svg {
+  width: var(--icon-size-queue);
+  height: var(--icon-size-queue);
+  shape-rendering: geometricPrecision;
+}
+
+.state-icon svg [stroke-width] {
+  stroke-width: var(--icon-stroke-width);
+}
+
+.track-title {
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.track-play {
+  line-height: 1;
+}
+
+.track-meta {
+  font-size: 0.82rem;
+}
+
+.icon-button {
+  width: var(--icon-button-size-sm);
+  height: var(--icon-button-size-sm);
+  min-width: var(--icon-button-size-sm);
+  min-height: var(--icon-button-size-sm);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.icon-button svg {
+  width: var(--icon-size-queue);
+  height: var(--icon-size-queue);
+  shape-rendering: geometricPrecision;
+}
+
+.icon-button svg [stroke-width],
+.folder-toggle svg [stroke-width] {
+  stroke-width: var(--icon-stroke-width);
+}
+
+.empty {
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.empty span {
+  color: #64748b;
+  font-size: 0.86rem;
+}

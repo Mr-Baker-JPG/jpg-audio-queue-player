@@ -1,0 +1,103 @@
+@media (max-width: 700px) {
+  #app {
+    padding: 0.8rem 0.65rem 8rem;
+  }
+
+  .header-row p {
+    display: none;
+  }
+
+  .app-title-full {
+    display: none;
+  }
+
+  .app-title-mobile {
+    display: inline;
+  }
+
+  .drop-zone {
+    display: none;
+  }
+
+  .controls {
+    padding: 0.45rem;
+    gap: 0.4rem;
+  }
+
+  .controls .btn-text {
+    display: none;
+  }
+
+  .controls .btn-icon {
+    display: inline-flex;
+    line-height: 1;
+  }
+
+  .controls .btn-icon svg {
+    width: var(--icon-size-control);
+    height: var(--icon-size-control);
+  }
+
+  .file-picker,
+  #add-folder,
+  #clear-queue {
+    min-width: 2.6rem;
+    min-height: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.45rem;
+  }
+
+  .queue-summary {
+    width: 100%;
+    margin-left: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  .timeline-panel {
+    position: fixed;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    z-index: 120;
+    border-color: #6b5622;
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.45);
+  }
+
+  .transport-row {
+    justify-content: flex-start;
+  }
+
+  .transport-row .volume-control {
+    margin-left: 0;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  .timeline-marks {
+    font-size: 0.8rem;
+  }
+
+  #play-toggle,
+  #stop-playback {
+    min-width: 2.9rem;
+    min-height: 2.9rem;
+  }
+
+  .queue-list {
+    max-height: none;
+  }
+
+  .track-title {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .help-grid {
+    grid-template-columns: 1fr;
+  }
+}

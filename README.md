@@ -45,9 +45,12 @@ A Vite + TypeScript web app for organizing and playing local audio files with fo
 ## Scripts
 
 ```bash
-bun run dev      # Start dev server
-bun run build    # Type-check + production build
-bun run preview  # Preview production build
+bun run dev            # Start dev server
+bun run build          # Type-check + production build
+bun run preview        # Preview production build
+bun run test           # Run test suite
+bun run test:watch     # Watch mode
+bun run test:coverage  # Coverage report
 ```
 
 ## Project Structure
@@ -71,3 +74,4 @@ bun run preview  # Preview production build
 
 - Audio files are local to your browser storage and origin.
 - If storage becomes invalid/corrupted, use the Help modal’s **Reset Local Storage** button.
+- See `README-ARCHITECTURE.md` for module boundaries and edit map.
