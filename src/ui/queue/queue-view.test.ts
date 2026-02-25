@@ -43,6 +43,7 @@ describe("renderQueueView", () => {
       onFolderToggle: vi.fn(),
       onFolderRename: vi.fn(),
       onTrackMoveToFolderEnd: vi.fn(() => false),
+      onTrackSelect: vi.fn(),
       onTrackPlay: vi.fn(),
       onTrackMoveBefore: vi.fn(() => false),
       onTrackRemove: vi.fn(),
@@ -60,7 +61,7 @@ describe("renderQueueView", () => {
     expect(playButton.innerHTML).toContain("<svg");
   });
 
-  it("plays only from the explicit play button, not row clicks", () => {
+  it("selects on row click and plays only from the explicit play button", () => {
     const windowInstance = new Window();
     (globalThis as { window: unknown }).window = windowInstance;
     (globalThis as { document: unknown }).document = windowInstance.document;
@@ -76,6 +77,7 @@ describe("renderQueueView", () => {
     ];
 
     const onTrackPlay = vi.fn<(itemId: number, folderId: number) => void>();
+    const onTrackSelect = vi.fn<(itemId: number, folderId: number) => void>();
 
     renderQueueView({
       queueList,
@@ -91,6 +93,7 @@ describe("renderQueueView", () => {
       onFolderToggle: vi.fn(),
       onFolderRename: vi.fn(),
       onTrackMoveToFolderEnd: vi.fn(() => false),
+      onTrackSelect,
       onTrackPlay,
       onTrackMoveBefore: vi.fn(() => false),
       onTrackRemove: vi.fn(),
@@ -105,8 +108,9 @@ describe("renderQueueView", () => {
     const playButton = row.children[1] as HTMLButtonElement;
     const title = row.children[2] as HTMLSpanElement;
 
-    row.dispatchEvent(new windowInstance.MouseEvent("click", { bubbles: true }) as unknown as Event);
-    title.dispatchEvent(new windowInstance.MouseEvent("click", { bubbles: true }) as unknown as Event);
+    row.dispatchEvent(new Event("click", { bubbles: true }));
+    title.dispatchEvent(new Event("click", { bubbles: true }));
+    expect(onTrackSelect).toHaveBeenCalledWith(1, 1);
     expect(onTrackPlay).not.toHaveBeenCalled();
 
     playButton.dispatchEvent(new windowInstance.MouseEvent("click", { bubbles: true }) as unknown as Event);
@@ -137,6 +141,7 @@ describe("renderQueueView", () => {
       onFolderToggle: vi.fn(),
       onFolderRename: vi.fn(),
       onTrackMoveToFolderEnd,
+      onTrackSelect: vi.fn(),
       onTrackPlay: vi.fn(),
       onTrackMoveBefore,
       onTrackRemove: vi.fn(),
@@ -192,6 +197,7 @@ describe("renderQueueView", () => {
       onFolderToggle: vi.fn(),
       onFolderRename: vi.fn(),
       onTrackMoveToFolderEnd,
+      onTrackSelect: vi.fn(),
       onTrackPlay: vi.fn(),
       onTrackMoveBefore,
       onTrackRemove: vi.fn(),

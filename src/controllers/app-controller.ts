@@ -433,6 +433,15 @@ function renderQueue(): void {
       }
       return moved;
     },
+    onTrackSelect: (itemId, folderId) => {
+      selectedId = itemId;
+      selectedFolderId = folderId;
+      const track = findTrackLocationState(itemId);
+      if (track) {
+        statusText.textContent = `Selected: ${track.item.file.name}`;
+      }
+      renderQueue();
+    },
     onTrackPlay: (itemId, folderId) => {
       selectedId = itemId;
       selectedFolderId = folderId;

@@ -20,6 +20,7 @@ interface QueueViewOptions {
   onFolderToggle: (folderId: number) => void;
   onFolderRename: (folderId: number, nextName: string) => void;
   onTrackMoveToFolderEnd: (itemId: number, folderId: number) => boolean;
+  onTrackSelect: (itemId: number, folderId: number) => void;
   onTrackPlay: (itemId: number, folderId: number) => void;
   onTrackMoveBefore: (sourceId: number, targetId: number) => boolean;
   onTrackRemove: (itemId: number) => void;
@@ -104,6 +105,7 @@ export function renderQueueView(options: QueueViewOptions): void {
     onFolderToggle,
     onFolderRename,
     onTrackMoveToFolderEnd,
+    onTrackSelect,
     onTrackPlay,
     onTrackMoveBefore,
     onTrackRemove,
@@ -208,13 +210,12 @@ export function renderQueueView(options: QueueViewOptions): void {
         row.draggable = true;
 
         row.addEventListener("click", (event: MouseEvent) => {
-          const target = event.target as HTMLElement;
-          if (target.closest("button")) {
+          const target = event.target as { closest?: (selector: string) => Element | null } | null;
+          if (target?.closest?.("button")) {
             return;
           }
 
-          // Intentionally no row-click action.
-          // Playback is explicit via the per-row play button to reduce UX confusion.
+          onTrackSelect(item.id, folder.id);
         });
 
         row.addEventListener("dragstart", () => {
